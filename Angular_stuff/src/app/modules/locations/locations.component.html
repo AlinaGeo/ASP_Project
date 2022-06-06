@@ -1,0 +1,13 @@
+<h2>My Ordered Locations</h2>
+<!-- <script>
+    debugger
+    console.log(locations);
+</script> -->
+<ul class="locations">
+<li *ngFor="let location of this.locations">
+    <a type="button">
+        <span class="badge">{{ location.id }}</span>
+        {{location.street}}
+    </a>
+    </li>
+</ul>

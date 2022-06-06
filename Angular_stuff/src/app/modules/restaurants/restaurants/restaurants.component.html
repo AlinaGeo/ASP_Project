@@ -1,0 +1,48 @@
+<!-- uppercase pipe -->
+<!-- <h2> {{restaurant.name | uppercase}} - Details</h2>            
+<div><span>id: </span>{{restaurant.id}}</div>
+<div><span>name: </span>{{restaurant.name}}</div> -->
+
+<!-- <div>
+    <label for="name">Restaurant name: </label>
+    <input id="name" [(ngModel)]="restaurant.name" placeholder="name">
+  </div> -->
+
+<h2>{{ 'My Restaurants' | marks }}</h2>
+<ul class="restaurants">
+<li *ngFor = "let restaurant of restaurants">
+  <a routerLink="/detail/{{restaurant.id}}">
+    <span class="badge">{{restaurant.id}}</span>
+    {{restaurant.name}}
+  </a>
+</li>
+</ul>
+
+<app-restaurant-child
+  [messageFromParent] = "parentMessage"
+  (messageFromChild) = "receiveMessage($event)"
+></app-restaurant-child>
+  
+<div>
+  <label for="new-restaurant">Restaurant name: </label>
+  <input id="new-restaurant" #restaurantName />
+
+  <button type="button" class="add-button" (click)="add(restaurantName.value); restaurantName.value=''">
+    Add restaurant
+  </button>
+</div>
+
+<button mat-raised-button (click) = "logout()" appHoverBtn>
+  Logout
+</button>
+<p>
+  Logged user: {{ this.loggedUser.username }}
+</p>
+
+<!-- event:
+1. add event to html
+2. define event in ts
+3. use event in html -->
+
+<!-- referentiere pentru restaurant-detail -->
+<!-- <app-restaurant-detail [restaurant] = "selectedRestaurant" ></app-restaurant-detail> -->

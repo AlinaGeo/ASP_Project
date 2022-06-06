@@ -1,0 +1,7 @@
+<h2>Top Restaurants</h2>
+<div class="restaurants-menu">
+    <!-- pentru fiecare restaurant, cand dau click, voi fi redirectionat catre pagina cu detaliile-->
+  <a *ngFor="let restaurant of restaurants" routerLink="/detail/{{restaurant.id}}">
+    {{restaurant.name}}
+  </a>
+</div>

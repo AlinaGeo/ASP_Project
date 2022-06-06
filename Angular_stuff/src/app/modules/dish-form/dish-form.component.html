@@ -1,0 +1,20 @@
+<h2>Ce mancaruri noi ati vrea sa incercati?</h2>
+<form [formGroup]="dishForm" (ngSubmit)="onSubmit()">
+    <label for="name">Dish Name: </label>
+    <input id="name" type="text" formControlName="Name">
+
+    <div formArrayName="ingrediente">
+        <h2>Ingrediente</h2>
+        <button type="button" (click)="addIngredient()">+ Add another ingredient</button>
+      
+        <div *ngFor="let ingredient of ingrediente.controls; let i=index">
+          <label for="ingredient-{{ i }}">Ingredient:</label>
+          <input id="ingredient-{{ i }}" type="text" [formControlName]="i">
+        </div>
+      </div>
+
+      <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!dishForm.valid">Submit</button>
+</form>
+
+<p>Status: {{ dishForm.status }}</p>

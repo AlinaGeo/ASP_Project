@@ -1,0 +1,33 @@
+<!-- <label for="name">Name:</label>
+<input id="name" type="test" [formControl] = "name">
+
+<p> Value: {{ name.value }} </p>
+
+<button type="button" (click)="updateName()">Set default Restaurant Name</button> -->
+<h2>Propuneti un restaurant nou!</h2>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="name">Restaurant Name: </label>
+    <input id="name" type="text" formControlName="Name">
+  
+    <label for="Id">Id: </label>
+    <input id="Id" type="text" formControlName="Id">
+ 
+    <div formGroupName="adresa">
+
+        <label for="strada">Strada: </label>
+        <input id="strada" type="text" formControlName="Strada">
+
+        <label for="oras">Oras: </label>
+        <input id="oras" type="text" formControlName="Oras">
+
+            </div>
+    
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+  </form>
+
+<p>Status: {{ profileForm.status }}</p>
+
+<button (click)="updateInfo()">Set default values</button>

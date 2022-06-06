@@ -1,0 +1,12 @@
+<h2>
+    Add a new dish to the menu!
+</h2>
+
+<div>
+    <label for="new-dish">Dish name: </label>
+    <input id="new-dish" #dishName />
+  
+    <button type="button" class="add-button" (click)="add(dishName.value); dishName.value=''">
+      Add dish
+    </button>
+  </div>

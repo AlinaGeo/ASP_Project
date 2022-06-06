@@ -1,0 +1,13 @@
+<!-- daca n-am pune *ngIf, programul nu ar merge intrucat pana apelam evenimentul, Selected e null si ar apela null.name-->
+<div *ngIf="restaurant">
+    <h2>{{ restaurant.name | uppercase }} - Details</h2>
+    <div>id: {{restaurant.id}}</div>
+    <div>
+      <label for="restaurant-name">Restaurant name: </label>
+      <input id="restaurant" [(ngModel)]="restaurant.name" placeholder="Name">
+    </div>
+    <!-- <div>
+      <!-- location: {{restaurant.Location}} -->
+</div>
+
+<button type="button" (click)="save()">save</button>
